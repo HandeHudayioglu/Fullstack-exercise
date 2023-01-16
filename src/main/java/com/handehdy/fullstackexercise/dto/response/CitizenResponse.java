@@ -2,13 +2,9 @@ package com.handehdy.fullstackexercise.dto.response;
 
 import com.handehdy.fullstackexercise.repository.entity.Citizen;
 import lombok.Data;
-
 import java.util.Set;
-
 @Data
 public class CitizenResponse {
-
-
     Long id;
     String name;
     boolean isCitizen = true;

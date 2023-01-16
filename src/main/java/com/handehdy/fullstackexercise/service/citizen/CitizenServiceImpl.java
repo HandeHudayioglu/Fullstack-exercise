@@ -33,7 +33,6 @@ public class CitizenServiceImpl implements CitizenService {
     @Override
     public List<Citizen> getByName(String name) {
           return citizenRepository.findByName(name);
-
     }
     @Override
     public List<Citizen> getByNameContains(String str) {
