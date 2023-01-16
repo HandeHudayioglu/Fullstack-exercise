@@ -1,4 +1,4 @@
-# **FULLSTACT EXERCISE**
+# **Full Stack Exercise**
 
 ##  Description 
 
