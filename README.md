@@ -8,9 +8,9 @@ Using this project, you can save any person you want to your database, update th
 On the developer environment it tested using PostgreSql.
 
 Some response of the project. 
-![GetById] (https://github.com/HandeHudayioglu/Fullstack-exercise/blob/main/GetById.png)
-![GetName] (https://github.com/HandeHudayioglu/Fullstack-exercise/blob/main/GetName.png)
-![GetNameContains] (https://github.com/HandeHudayioglu/Fullstack-exercise/blob/main/GetNameContains.png)
+![] (https://github.com/HandeHudayioglu/Fullstack-exercise/blob/main/GetById.png)  <br/>
+![] (https://github.com/HandeHudayioglu/Fullstack-exercise/blob/main/GetName.png)  <br/>
+![] (https://github.com/HandeHudayioglu/Fullstack-exercise/blob/main/GetNameContains.png)
 
 
 
