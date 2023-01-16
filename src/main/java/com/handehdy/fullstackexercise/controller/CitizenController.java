@@ -1,6 +1,5 @@
 package com.handehdy.fullstackexercise.controller;
 
-import com.handehdy.fullstackexercise.dto.response.CitizenResponse;
 import com.handehdy.fullstackexercise.exceptions.CitizenNotFoundException;
 import com.handehdy.fullstackexercise.repository.entity.Citizen;
 import com.handehdy.fullstackexercise.service.citizen.CitizenServiceImpl;
@@ -57,21 +56,15 @@ public class CitizenController {
            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
     @GetMapping("/{citizenId}")
-    public CitizenResponse getOneCitizen(@PathVariable Long citizenId) {
+    public Citizen getOneCitizen(@PathVariable Long citizenId) {
         Citizen citizen = citizenService.getCitizenById(citizenId);
         if(citizen == null) {
-            throw new CitizenNotFoundException();
+            throw new CitizenNotFoundException("Citizen not found!");
         }
-        return new CitizenResponse(citizen);
+        return citizenService.getCitizenById(citizenId);
     }
     @GetMapping("/countchildren/{citizenId}")
     public Integer countChildren(@PathVariable Optional<Long> citizenId){
        return citizenService.countChildren(citizenId);
-    }
-
-    @ExceptionHandler(CitizenNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    private void handleCitizenNotFound() {
-
     }
 }
