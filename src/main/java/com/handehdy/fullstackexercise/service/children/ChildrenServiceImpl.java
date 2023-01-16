@@ -1,4 +1,4 @@
-package com.handehdy.fullstackexercise.service;
+package com.handehdy.fullstackexercise.service.children;
 
 import com.handehdy.fullstackexercise.dto.request.ChildrenAddRequest;
 import com.handehdy.fullstackexercise.dto.response.ChildrenResponse;
@@ -14,20 +14,18 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class ChildrenService {
+public class ChildrenServiceImpl implements ChildrenService {
 
     private final IChildrenRepository childrenRepository;
     private final ICitizenRepository citizenRepository;
 
-
-    public ChildrenService(IChildrenRepository childrenRepository, ICitizenRepository citizenRepository) {
+    public ChildrenServiceImpl(IChildrenRepository childrenRepository, ICitizenRepository citizenRepository) {
 
         this.childrenRepository = childrenRepository;
         this.citizenRepository = citizenRepository;
 
     }
-
-
+    @Override
     public Children addOneChild(ChildrenAddRequest newChild, Long citizenId) {
         Optional<Citizen> citizen = citizenRepository.findById(citizenId);
         if(citizen.isPresent()){
@@ -38,7 +36,7 @@ public class ChildrenService {
         } else
             return null;
     }
-
+    @Override
     public List<ChildrenResponse> getAllChildrenWithParam(Optional<Long> citizenId) {
         List<Children> list;
         if(citizenId.isPresent()) {
@@ -47,18 +45,6 @@ public class ChildrenService {
             list = childrenRepository.findAll();
         return list.stream().map(child -> new ChildrenResponse(child)).collect(Collectors.toList());
     }
-
-
-  /*
-   public List<ChildrenResponse> findByPersonId(Optional<Long> personId){
-      List<Children> list;
-      if(personId.isPresent()){
-          list = childrenRepository.findByPersonId(personId.get());
-      } else
-          list = childrenRepository.findAll();
-      return list.stream().map(children -> new ChildrenResponse(children)).collect(Collectors.toList());
-
-   } */
 
 
    }

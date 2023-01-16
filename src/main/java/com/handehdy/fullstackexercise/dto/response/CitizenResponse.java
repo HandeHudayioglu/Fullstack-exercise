@@ -15,6 +15,9 @@ public class CitizenResponse {
     boolean hasDrivingLicense = true;
     Set<ChildrenResponse> children;
 
+    public CitizenResponse (Citizen entity){
+        this.id = entity.getId();
+    }
     public CitizenResponse(Citizen entity, Set<ChildrenResponse> children) {
         this.id = entity.getId();
         this.children = children;

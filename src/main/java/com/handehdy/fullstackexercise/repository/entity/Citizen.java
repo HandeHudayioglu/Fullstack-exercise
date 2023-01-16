@@ -17,7 +17,7 @@ import java.util.Set;
 public class Citizen {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
     String name;
     @Column(name = "is_citizen", columnDefinition = "boolean default true")
