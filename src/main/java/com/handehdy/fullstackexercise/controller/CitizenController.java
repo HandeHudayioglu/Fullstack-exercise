@@ -40,7 +40,7 @@ public class CitizenController {
         return citizenService.getByIsCitizen(isCitizen);
     }
     @PutMapping("/{citizenId}")
-    public ResponseEntity updateOnePerson(@PathVariable Long citizenId, @RequestBody Citizen newCitizen){
+    public ResponseEntity<Void> updateOnePerson(@PathVariable Long citizenId, @RequestBody Citizen newCitizen){
        Citizen citizen = citizenService.updateOneCitizen(citizenId,newCitizen);
        if(citizen != null) {
            return new ResponseEntity<>(HttpStatus.OK);
@@ -48,7 +48,7 @@ public class CitizenController {
        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
     @PostMapping("/add")
-    public ResponseEntity addOneCitizen(@RequestBody Citizen newCitizen){
+    public ResponseEntity<Void> addOneCitizen(@RequestBody Citizen newCitizen){
        Citizen citizen = citizenService.addOneCitizen(newCitizen);
        if(citizen != null) {
            return new ResponseEntity<>(HttpStatus.CREATED);
